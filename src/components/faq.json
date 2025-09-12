@@ -1,0 +1,22 @@
+[
+  {
+    "id": "q1",
+    "question": "What is Conci?",
+    "answer": "Conci is a platform that simplifies your life by providing trusted, accessible, and affordable services, from everyday tasks to urgent help."
+  },
+  {
+    "id": "q2",
+    "question": "How do I get started?",
+    "answer": "Simply download our app, create an account, and browse our wide range of services to find the help you need."
+  },
+  {
+    "id": "q3",
+    "question": "Are your service providers verified?",
+    "answer": "Yes, all our service providers undergo strict background checks, including police verification, to ensure your safety and peace of mind."
+  },
+  {
+    "id": "q4",
+    "question": "What kind of services do you offer?",
+    "answer": "We offer a wide range of services including routine tasks like grocery delivery, scheduled services like home repairs, and emergency support for urgent needs."
+  }
+]

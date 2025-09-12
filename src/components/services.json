@@ -1,0 +1,30 @@
+{
+  "headerSections": [
+    {
+      "title": "ROUTINE SERVICES",
+      "description": "Everyday essentials delivered and managed seamlessly so families stay stress-free."
+    },
+    {
+      "title": "SCHEDULED SERVICES",
+      "description": "Planned visits and professional help scheduled at the right time, without family chasing multiple vendors."
+    },
+    {
+      "title": "EMERGENCY SERVICES",
+      "description": "Rapid response for health, travel, or safety needs. Our help arrives when it truly matters."
+    }
+  ],
+  "tableRows": [
+    {
+      "category": "Routine Services",
+      "services": "Groceries • Medicines • Tailor • Iron • Courier • Pooja Items Delivery • Flower Delivery • Local Shop Delivery • Laundry • Bill Payments • Car Cleaning"
+    },
+    {
+      "category": "Scheduled Services",
+      "services": "Doctor Visit • Driver • Local Travel Companion • Plumber • Electrician • House Cleaning • Bathroom Cleaning • Car/Bike Service • Post Office Visit • Bank Visit • Lab Tests • Scrap Collection"
+    },
+    {
+      "category": "Emergency Services",
+      "services": "Doctor Call-in • Urgent Driver • Urgent Travel Booking Assistance • Urgent Check-in • Personal Attendant"
+    }
+  ]
+}

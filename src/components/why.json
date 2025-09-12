@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Safe",
+    "description": "Trusted and safe service - every concierge undergoes strict background checks, is at least matric-pass, and police verification ensures families get competent, reliable support.",
+    "icon": "shield-check"
+  },
+  {
+    "title": "Accessible",
+    "description": "A simple, family-friendly app that connects households to trusted help in just a few taps, making everyday life smoother and hassle-free.",
+    "icon": "hand"
+  },
+  {
+    "title": "Affordable",
+    "description": "Affordable subscription plans, thoughtfully priced to fit the budgets of modern families, ensuring access to reliable help without financial strain.",
+    "icon": "dollar-sign"
+  },
+  {
+    "title": "Careful",
+    "description": "Dignified, personalized support designed for today's busy families, helping every household stay organised and independent.",
+    "icon": "heart"
+  }
+]
