@@ -21,6 +21,7 @@ const Hero = ({ theme }) => {
       >
         One Subscription, One App, A Bundle of Services
       </p>
+      <br />
       <motion.p 
         className="max-w-xl text-lg text-gray-600 dark:text-gray-200 mb-8"
       >

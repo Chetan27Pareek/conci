@@ -2,6 +2,9 @@
 
 import React from 'react';
 import logoImage from '../conci_white.png';
+import emailIcon from '../assets/envelope-solid-full.svg'; // Check the correct path
+import linkedinIcon from '../assets/linkedin-brands-solid-full.svg'; // Check the correct path
+import instagramIcon from '../assets/instagram-brands-solid-full.svg'; // Check the correct path
 
 const Footer = () => {
   return (
@@ -15,32 +18,48 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Contact Information */}
+        {/* Contact Information - Now a horizontal row */}
         <div
           id="contact"
-          className="text-center sm:text-left space-y-4"
+          className="flex flex-row flex-wrap justify-center sm:justify-start gap-8 text-center sm:text-left"
         >
           {/* Email section */}
-          <div>
+          <div className="w-full sm:w-auto">
             <h4 className="text-lg font-semibold mb-3 flex items-center">
-              <i className="fa-solid fa-envelope mr-2"></i> Email
+              <img src={emailIcon} alt="Email" className="w-6 h-6 mr-2 filter brightness-0 invert" />
             </h4>
             <ul className="text-sm space-y-2 text-gray-400">
-              <li><a href="mailto:deepak.pareek@conci.in" className="hover:text-white transition-colors">deepak.pareek@conci.in</a></li>
-              <li><a href="mailto:tanmeet.singh@conci.in" className="hover:text-white transition-colors">tanmeet.singh@conci.in</a></li>
-              <li><a href="mailto:jashan0620@gmail.com" className="hover:text-white transition-colors">jashan0620@gmail.com</a></li>
+              <li>
+                <a href="mailto:help@conci.in" className="hover:text-white transition-colors">
+                  help@conci.in
+                </a>
+              </li>
             </ul>
           </div>
           
-          {/* LinkedIn section with margin-top */}
-          <div className="mt-4">
+          {/* LinkedIn section */}
+          <div className="w-full sm:w-auto">
             <h4 className="text-lg font-semibold mb-3 flex items-center">
-              <i className="fa-brands fa-linkedin mr-2"></i> LinkedIn
+              <img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6 mr-2 filter brightness-0 invert" />
             </h4>
             <ul className="text-sm space-y-2 text-gray-400">
               <li><a href="https://www.linkedin.com/in/deepak-pareek-b01a6120a" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Deepak Pareek</a></li>
               <li><a href="https://www.linkedin.com/in/tanmeet-singh-sehmi" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Tanmeet Singh Sehmi</a></li>
               <li><a href="https://www.linkedin.com/in/jashan-singh" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Jashan Singh</a></li>
+            </ul>
+          </div>
+
+          {/* Instagram section */}
+          <div className="w-full sm:w-auto">
+            <h4 className="text-lg font-semibold mb-3 flex items-center">
+              <img src={instagramIcon} alt="Instagram" className="w-6 h-6 mr-2 filter brightness-0 invert" />
+            </h4>
+            <ul className="text-sm space-y-2 text-gray-400">
+              <li>
+                <a href="https://www.instagram.com/conci.in?igsh=Nm56enFmdmc3bDN1" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  conci.in
+                </a>
+              </li>
             </ul>
           </div>
         </div>

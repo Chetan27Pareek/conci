@@ -1,9 +1,10 @@
 {
+  "homepage": "https://chetan27pareek.github.io/conci/",
   "name": "react",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://chetan27pareek.github.io/conci/",
+  
   "scripts": {
     "dev": "vite",
     "build": "vite build",

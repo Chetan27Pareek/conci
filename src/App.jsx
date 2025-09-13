@@ -32,9 +32,10 @@ function App() {
       <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
       <main>
         <Hero theme={theme} />
-        <WhyUs />
-        <Services />
-        <HowItWorks />
+        {/* Pass the 'theme' prop to the components that need it */}
+        <WhyUs currentTheme={theme} />
+        <Services currentTheme={theme} />
+        <HowItWorks currentTheme={theme} />
         <FAQ />
       </main>
       <Footer />

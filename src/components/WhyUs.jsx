@@ -1,7 +1,8 @@
 import {Card} from './Card'; 
 import whyData from './why.json';
 
-const WhyUs = () => {
+// This component now accepts the currentTheme prop
+const WhyUs = ({ currentTheme }) => {
   return (
     <div id='whyus' className="min-h-screen bg-white text-black font-sans flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 dark:bg-slate-900 dark:text-white">
       
@@ -9,8 +10,8 @@ const WhyUs = () => {
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-700 dark:text-gray-400 mb-4">
           <span className="text-blue-600 dark:text-blue-400">Why Conci?</span>
         </h1>
-        <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-500 max-w-2xl mx-auto">
-          Simplifying your life with trusted, accessible, and affordable househelp equipped to provide aplethora of services.
+        <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-500 max-w mx-auto">
+          Simplifying your life with trusted, accessible, and affordable househelp equipped to provide a plethora of services.
         </p>
       </div>
 
@@ -21,6 +22,8 @@ const WhyUs = () => {
             title={feature.title}
             description={feature.description}
             iconName={feature.icon}
+            // This is the key change: passing the currentTheme prop
+            currentTheme={currentTheme}
           />
         ))}
       </div>
@@ -28,4 +31,4 @@ const WhyUs = () => {
   );
 };
 
-export default WhyUs
+export default WhyUs;
