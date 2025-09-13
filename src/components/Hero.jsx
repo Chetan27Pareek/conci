@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import appImage from '../famm.png'; // Updated image name here
+import appImage from '../famm.png';
 
-const Hero = () => {
+const Hero = ({ theme }) => {
   return (
     <motion.section 
       initial={{ opacity: 0, y: 20 }}
@@ -15,11 +15,12 @@ const Hero = () => {
       >
         Gurgaon's First Errand Partner
       </motion.h1>
-      <motion.h1 
-        className="text-4xl md:text-6xl text-white-400 font-bold mb-4"
+      {/* Updated line below */}
+      <p 
+        className={`text-6xl font-bold ${theme === 'light' ? 'text-black' : 'text-white'}`}
       >
         One Subscription, One App, A Bundle of Services
-      </motion.h1>
+      </p>
       <motion.p 
         className="max-w-xl text-lg text-gray-600 dark:text-gray-200 mb-8"
       >

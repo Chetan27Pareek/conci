@@ -31,7 +31,7 @@ function App() {
       {/* The button is passed down to the Navbar component */}
       <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
       <main>
-        <Hero />
+        <Hero theme={theme} />
         <WhyUs />
         <Services />
         <HowItWorks />

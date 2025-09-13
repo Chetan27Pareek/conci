@@ -4,7 +4,9 @@ import logoImage from '../conci_white.png';
 
 const Navbar = ({ toggleTheme, currentTheme }) => {
   return (
-    <nav className="p-4 mt-6 flex justify-between items-center w-full px-10">
+    // Add 'relative' to the parent nav
+    <nav className="p-4 mt-6 flex justify-between items-center w-full px-10 relative">
+      
       {/* Left side links */}
       <div className="flex items-center space-x-6"> 
         <a href="#whyus" className="text-white font-medium hover:text-blue-600 transition-colors">
@@ -24,8 +26,8 @@ const Navbar = ({ toggleTheme, currentTheme }) => {
         </a>
       </div>
       
-      {/* Center Logo */}
-      <div className="flex items-center absolute left-1/2 transform -translate-x-1/2">
+      {/* Center Logo with absolute positioning */}
+      <div className="absolute left-1/2 transform -translate-x-1/2">
         <img src={logoImage} alt="Conci Logo" className="h-14 w-auto" />
       </div>
 

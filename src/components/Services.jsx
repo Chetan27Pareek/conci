@@ -6,7 +6,7 @@ import ServiceBox from './ServiceBox';
 const Services = () => {
   return (
     <section id="services" className="p-20 text-center bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
-      <div className="max-w-7xl mx-auto"> {/* Changed back to max-w-7xl for better readability */}
+      <div className="max-w-7xl mx-auto pointer-cursor"> {/* Changed back to max-w-7xl for better readability */}
         {/* Main Title Section */}
         <h2 className="text-4xl lg:text-5xl font-extrabold text-blue-600 dark:text-blue-400 mb-2">
           Our Monthly Subscription Covers Every Need
