@@ -9,19 +9,19 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="bg-blue text-white py-20 px-4">
+    <section id="faq" className="bg-gray-100 dark:bg-gray-900 text-black dark:text-white py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-extrabold text-center text-blue-400 mb-12">
-          Frequently Asked Questions
+        <h2 className="text-4xl font-extrabold text-blue-600 dark:text-blue-400 text-center mb-12">
+          FAQs
         </h2>
         <div className="space-y-6">
           {faqData.map((item) => (
             <div
               key={item.id}
-              className="border border-slate-700 rounded-lg overflow-hidden transition-all duration-300 ease-in-out"
+              className="border border-gray-300 dark:border-slate-700 rounded-lg overflow-hidden transition-all duration-300 ease-in-out"
             >
               <div
-                className="flex justify-between items-center p-6 cursor-pointer bg-slate-800 hover:bg-slate-700 transition-colors"
+                className="flex justify-between items-center p-6 cursor-pointer bg-gray-200 dark:bg-slate-800 hover:bg-gray-300 dark:hover:bg-slate-700 transition-colors"
                 onClick={() => handleToggle(item.id)}
               >
                 <h3 className="text-lg font-semibold">{item.question}</h3>
@@ -43,7 +43,7 @@ const FAQ = () => {
                   openQuestionId === item.id ? 'max-h-96' : 'max-h-0'
                 }`}
               >
-                <div className="p-6 bg-slate-700 text-gray-300">
+                <div className="p-6 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">
                   <p>{item.answer}</p>
                 </div>
               </div>

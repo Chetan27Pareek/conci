@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import appImage from '../chat.png'; // Updated image name here
+import appImage from '../famm.png'; // Updated image name here
 
 const Hero = () => {
   return (
@@ -8,21 +8,26 @@ const Hero = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="text-center flex flex-col justify-start items-center p-5 pt-20"
+      className="text-center flex flex-col justify-start items-center p-5 pt-20 bg-gray-100 dark:bg-gray-900"
     >
       <motion.h1 
         className="text-4xl md:text-6xl text-blue-400 font-bold mb-4"
       >
-        A Personal Househelp <br /> 5X Affordable Price Than Market
+        Gurgaon's First Errand Partner
+      </motion.h1>
+      <motion.h1 
+        className="text-4xl md:text-6xl text-white-400 font-bold mb-4"
+      >
+        One Subscription, One App, A Bundle of Services
       </motion.h1>
       <motion.p 
-        className="max-w-xl text-lg text-gray-400 mb-8"
+        className="max-w-xl text-lg text-gray-600 dark:text-gray-200 mb-8"
       >
-        Want to avail services? contact at help@conci.in
+        Want to avail our services? contact at help@conci.in
       </motion.p>
       
       <motion.div
-        className="max-w-xs mx-auto"
+        className="max-w-2xl mx-auto"
       >
         <img src={appImage} alt="Conci App UI" className="w-full h-auto rounded-xl shadow-2xl" />
       </motion.div>

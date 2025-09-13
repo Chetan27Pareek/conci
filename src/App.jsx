@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -11,20 +11,35 @@ import AppUI from './components/AppUI';
 import Footer from './components/Footer';
 
 function App() {
+  const [theme, setTheme] = useState('light');
+
+  // This is the core logic that changes the theme for the entire webpage
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
+
   return (
     <div>
-      <Navbar />
+      {/* The button is passed down to the Navbar component */}
+      <Navbar toggleTheme={toggleTheme} currentTheme={theme} />
       <main>
         <Hero />
         <WhyUs />
         <Services />
         <HowItWorks />
         <FAQ />
-        {/* The FAQs section will go here */}
       </main>
       <Footer />
     </div>
   );
-};
+}
 
 export default App;

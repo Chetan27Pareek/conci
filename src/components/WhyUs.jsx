@@ -3,14 +3,14 @@ import whyData from './why.json';
 
 const WhyUs = () => {
   return (
-    <div id='whyus' className="min-h-screen bg-slate-900 text-white font-sans flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div id='whyus' className="min-h-screen bg-white text-black font-sans flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 dark:bg-slate-900 dark:text-white">
       
       <div className="max-w-7xl mx-auto text-center mb-16">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-400 mb-4">
-          At <span className="text-blue-400">conci</span>, we provide you this.
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-700 dark:text-gray-400 mb-4">
+          <span className="text-blue-600 dark:text-blue-400">Why Conci?</span>
         </h1>
-        <p className="text-xl sm:text-2xl text-gray-500 max-w-2xl mx-auto">
-          Simplifying your life with trusted, accessible, and affordable services.
+        <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-500 max-w-2xl mx-auto">
+          Simplifying your life with trusted, accessible, and affordable househelp equipped to provide aplethora of services.
         </p>
       </div>
 

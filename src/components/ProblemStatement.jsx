@@ -4,9 +4,9 @@ import chatImage from '../chat.png';
 
 const ProblemStatement = () => {
   return (
-    <section className="p-20 flex flex-col md:flex-row justify-between items-center bg-blue-900">
+    <section className="p-20 flex flex-col md:flex-row justify-between items-center bg-white dark:bg-blue-900">
       <div className="md:w-1/2 text-left p-10">
-        <h2 className="text-5xl font-bold text-gray-200">
+        <h2 className="text-5xl font-bold text-gray-800 dark:text-gray-200">
           At Conci -<br />Help is<br />always a<br />couple of<br />taps away.
         </h2>
       </div>

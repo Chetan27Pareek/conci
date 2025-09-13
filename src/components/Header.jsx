@@ -1,27 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Header = () => {
+const Header = ({ toggleTheme, currentTheme }) => {
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 }}
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '20px 5%',
-        backgroundColor: 'var(--secondary-blue)'
-      }}
+      className="flex justify-between items-center p-5 md:p-5 dark:bg-gray-800"
     >
-      <div style={{ color: 'var(--text-light)', fontWeight: '700', fontSize: '24px' }}>
+      <div className="text-gray-900 dark:text-gray-100 font-bold text-2xl">
         Conci
       </div>
       <nav>
-        <a href="#services" style={{ color: 'var(--text-light)', textDecoration: 'none', marginRight: '20px' }}>Services</a>
-        <a href="#pricing" style={{ color: 'var(--text-light)', textDecoration: 'none', marginRight: '20px' }}>Pricing</a>
-        <a href="#contact" className="btn">Contact Us</a>
+        <a href="#services" className="text-gray-600 dark:text-gray-300 mr-5 hover:text-blue-500 transition-colors">Services</a>
+        <a href="#pricing" className="text-gray-600 dark:text-gray-300 mr-5 hover:text-blue-500 transition-colors">Pricing</a>
+        
+        {/* The theme toggle button */}
+        <button
+          onClick={toggleTheme}
+          className="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-colors duration-300 focus:outline-none"
+        >
+          {currentTheme === 'light' ? '🌙' : '☀️'}
+        </button>
       </nav>
     </motion.header>
   );
