@@ -43,9 +43,9 @@ const Footer = () => {
               <img src={linkedinIcon} alt="LinkedIn" className="w-6 h-6 mr-2 filter brightness-0 invert" />
             </h4>
             <ul className="text-sm space-y-2 text-gray-400">
-              <li><a href="https://www.linkedin.com/in/deepak-pareek-b01a6120a" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Deepak Pareek</a></li>
-              <li><a href="https://www.linkedin.com/in/tanmeet-singh-sehmi" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Tanmeet Singh Sehmi</a></li>
-              <li><a href="https://www.linkedin.com/in/jashan-singh" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Jashan Singh</a></li>
+              <li><a href="https://www.linkedin.com/in/deepakpareek08/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Deepak Pareek</a></li>
+              <li><a href="https://www.linkedin.com/in/tanmeet-singh-sehmi-036342205/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Tanmeet Singh Sehmi</a></li>
+              <li><a href="https://www.linkedin.com/in/jashan-singh-a554b117a/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Jashan Singh</a></li>
             </ul>
           </div>
 
@@ -66,7 +66,23 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-gray-500 text-xs mt-8 pt-4 border-t border-gray-700">
-        © {new Date().getFullYear()} Conci. All rights reserved.
+        <a 
+          href="/privacy_policy.html"  /* This is the new link! */
+          className="hover:text-white transition-colors mr-4"
+        >
+          Privacy Policy
+        </a>
+        <span>&middot;</span>
+        <a 
+          href="/terms_of_service.html"  /* Recommended: Add a Terms link too */
+          className="hover:text-white transition-colors ml-4"
+        >
+          Terms of Service
+        </a>
+        
+        <p className="mt-2">
+            © {new Date().getFullYear()} Conci. All rights reserved.
+        </p>
       </div>
     </footer>
   );
