@@ -67,18 +67,13 @@ const Footer = () => {
 
       <div className="text-center text-gray-500 text-xs mt-8 pt-4 border-t border-gray-700">
         <a 
-          href="/privacy_policy.html"  /* This is the new link! */
+          href="/privacy_policy.html"  
           className="hover:text-white transition-colors mr-4"
         >
           Privacy Policy
         </a>
         <span>&middot;</span>
-        <a 
-          href="/terms_of_service.html"  /* Recommended: Add a Terms link too */
-          className="hover:text-white transition-colors ml-4"
-        >
-          Terms of Service
-        </a>
+        
         
         <p className="mt-2">
             © {new Date().getFullYear()} Conci. All rights reserved.

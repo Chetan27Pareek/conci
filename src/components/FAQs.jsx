@@ -44,7 +44,8 @@ const FAQ = () => {
                 }`}
               >
                 <div className="p-6 bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300">
-                  <p>{item.answer}</p>
+                  {/* FIX: Use dangerouslySetInnerHTML to correctly render the <a> tags from the JSON answer */}
+                  <p dangerouslySetInnerHTML={{ __html: item.answer }}></p>
                 </div>
               </div>
             </div>
