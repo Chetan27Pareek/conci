@@ -66,12 +66,10 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-gray-500 text-xs mt-8 pt-4 border-t border-gray-700">
-        <a 
-          href="/privacy_policy.html"  
-          className="hover:text-white transition-colors mr-4"
-        >
-          Privacy Policy
-        </a>
+        <a href="/privacy_policy.html" target="_blank" rel="noopener noreferrer">
+        Privacy Policy
+      </a>
+
         <span>&middot;</span>
         
         
