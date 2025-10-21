@@ -9,6 +9,8 @@ import HowItWorks from './components/HowItWorks';
 import FAQ from './components/FAQs';
 import AppUI from './components/AppUI';
 import Footer from './components/Footer';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import CancelMembership from './components/CancelMembership';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -37,6 +39,12 @@ function App() {
         <Services currentTheme={theme} />
         <HowItWorks currentTheme={theme} />
         <FAQ />
+        <div id="privacy-policy">
+          <PrivacyPolicy />
+        </div>
+        <div id="cancel-membership">
+          <CancelMembership />
+        </div>
       </main>
       <Footer />
     </div>

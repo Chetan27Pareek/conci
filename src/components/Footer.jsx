@@ -66,15 +66,16 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-gray-500 text-xs mt-8 pt-4 border-t border-gray-700">
-        <a href="/privacy_policy.html" target="_blank" rel="noopener noreferrer">
-        Privacy Policy
-      </a>
+        <a href="#privacy-policy" className="hover:text-white transition-colors">
+          Privacy Policy
+        </a>
+        <span className="mx-2">&middot;</span>
+        <a href="#cancel-membership" className="hover:text-white transition-colors">
+          Cancel Membership
+        </a>
 
-        <span>&middot;</span>
-        
-        
         <p className="mt-2">
-            © {new Date().getFullYear()} Conci. All rights reserved.
+          © {new Date().getFullYear()} Conci. All rights reserved.
         </p>
       </div>
     </footer>
