@@ -2,21 +2,244 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+/* ========================================
+   CONCI - Global Styles
+   ======================================== */
 
-:root {
-  --primary-blue: #0A192F;
-  --secondary-blue: #1C315E;
-  --accent-blue: #5499C7;
-  --text-light: #E2E8F0;
-  --text-dark: #A0B3C4;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
+/* Base body styles */
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--primary-blue);
-  color: var(--text-light);
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a2e;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   Custom Utility Classes
+   ======================================== */
+
+@layer components {
+  /* Primary Button */
+  .btn-primary {
+    @apply bg-primary text-white px-7 py-3.5 rounded-md font-semibold 
+           transition-all duration-300 ease-out
+           hover:bg-primary-dark hover:-translate-y-0.5
+           active:translate-y-0;
+    box-shadow: 0 4px 14px rgba(49, 131, 231, 0.25);
+  }
+  
+  .btn-primary:hover {
+    box-shadow: 0 10px 25px rgba(49, 131, 231, 0.35);
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply bg-white text-primary border-2 border-primary 
+           px-6 py-3 rounded-md font-semibold
+           transition-all duration-300 ease-out
+           hover:bg-primary-light hover:-translate-y-0.5
+           active:translate-y-0;
+  }
+
+  /* Section Container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+
+  /* Section Heading */
+  .section-heading {
+    @apply text-h2-mobile md:text-h2-desktop text-dark text-center mb-4;
+  }
+
+  /* Section Subheading */
+  .section-subheading {
+    @apply text-body-large text-secondary text-center max-w-2xl mx-auto mb-12;
+  }
+
+  /* Card Base */
+  .card {
+    @apply bg-white border border-border-gray rounded-lg p-8
+           shadow-card transition-all duration-300
+           hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Glassmorphism Navbar - iOS style */
+  .navbar-glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Location Badge */
+  .location-badge {
+    @apply inline-flex items-center gap-2 bg-primary-light text-primary 
+           px-5 py-2 rounded-full text-sm font-medium;
+  }
+
+  /* App Store Button Container */
+  .store-button {
+    @apply h-12 md:h-14 transition-transform duration-300 hover:scale-105;
+  }
+
+  .store-button img {
+    @apply h-full w-auto;
+  }
+}
+
+/* ========================================
+   Animation Classes
+   ======================================== */
+
+/* Staggered fade-in-up animations */
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+
+/* Float animation for staff images */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 4s ease-in-out 2s infinite;
+}
+
+/* Fade in up keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll reveal animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   Responsive Typography Helpers
+   ======================================== */
+
+.text-hero-headline {
+  @apply text-4xl md:text-5xl lg:text-h1-desktop font-bold text-dark leading-tight;
+}
+
+.text-hero-subheadline {
+  @apply text-base md:text-lg lg:text-body-large text-secondary leading-relaxed;
+}
+
+/* ========================================
+   Custom Scrollbar (Optional)
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* ========================================
+   Selection Color
+   ======================================== */
+
+::selection {
+  background-color: rgba(49, 131, 231, 0.2);
+  color: #1a1a2e;
+}
+
+/* ========================================
+   Focus Styles for Accessibility
+   ======================================== */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #3183e7;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Mobile Menu Animation
+   ======================================== */
+
+.mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s ease-out;
+}
+
+.mobile-menu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.2s ease-in;
 }

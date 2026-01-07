@@ -1,75 +1,163 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import logoImage from '../conci_white.png';
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar = ({ toggleTheme, currentTheme }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const Navbar = ({ onNavigate }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleMenuClick = () => {
-    setMenuOpen(!menuOpen);
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close mobile menu on resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Smooth scroll handler
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
   };
 
+  const navLinks = [
+    { name: 'Services', sectionId: 'services' },
+    { name: 'How it Works', sectionId: 'how-it-works' },
+  ];
+
   return (
-    <nav className="p-4 mt-6 flex justify-between items-center w-full px-10 relative">
-      
-      {/* Conci Logo on the left side */}
-      <div className="flex items-center">
-        <img src={logoImage} alt="Conci Logo" className="h-14 w-auto" />
-      </div>
-
-      {/* Hamburger menu icon for mobile */}
-      <div className="md:hidden flex items-center ml-auto">
-        <button onClick={handleMenuClick} className="text-white focus:outline-none">
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-4 6h4"></path>
-          </svg>
-        </button>
-      </div>
-
-      {/* Full navigation links for desktop */}
-      <div className="hidden md:flex items-center space-x-6"> 
-        <a href="#whyus" className="text-white font-medium hover:text-blue-600 transition-colors">
-          WHY US
-        </a>
-        <a href="#services" className="text-white font-medium hover:text-blue-600 transition-colors">
-          SERVICES
-        </a>
-        <a href="#howitworks" className="text-white font-medium hover:text-blue-600 transition-colors">
-          HOW IT WORKS
-        </a>
-        <a href="#contact" className="text-white font-medium hover:text-blue-600 transition-colors">
-          CONTACT US
-        </a>
-        <a href="#faq" className="text-white font-medium hover:text-blue-600 transition-colors">
-          FAQs
-        </a>
-        <button
-          onClick={toggleTheme}
-          className="ml-4 p-2 rounded-full bg-white text-gray-800 focus:outline-none"
+    <>
+      {/* Navbar Container */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className={`
+            navbar-glass rounded-full px-8 md:px-10 py-4
+            flex items-center justify-between
+            w-full max-w-2xl
+            transition-all duration-300
+            ${isScrolled ? 'shadow-navbar' : 'shadow-sm'}
+          `}
         >
-          {currentTheme === 'light' ? '🌙' : '☀️'}
-        </button>
-      </div>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-dark hover:text-primary transition-colors"
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
 
-      {/* Mobile navigation menu */}
-      {menuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-gray-800 dark:bg-gray-900 py-4 z-50">
-          <div className="flex flex-col items-center space-y-4">
-            <a onClick={handleMenuClick} href="#whyus" className="text-white font-medium hover:text-blue-600 transition-colors">WHY US</a>
-            <a onClick={handleMenuClick} href="#services" className="text-white font-medium hover:text-blue-600 transition-colors">SERVICES</a>
-            <a onClick={handleMenuClick} href="#howitworks" className="text-white font-medium hover:text-blue-600 transition-colors">HOW IT WORKS</a>
-            <a onClick={handleMenuClick} href="#contact" className="text-white font-medium hover:text-blue-600 transition-colors">CONTACT US</a>
-            <a onClick={handleMenuClick} href="#faq" className="text-white font-medium hover:text-blue-600 transition-colors">FAQs</a>
+          {/* Desktop Nav Links - Left */}
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => scrollToSection(link.sectionId)}
+                className="text-sm font-medium text-dark hover:text-primary transition-colors"
+              >
+                {link.name}
+              </button>
+            ))}
+          </div>
+
+          {/* Logo - Absolute Center */}
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="absolute left-1/2 -translate-x-1/2 flex items-center"
+          >
+            <img
+              src="/assets/conci_blue.png"
+              alt="Conci"
+              className="h-8 w-auto"
+            />
+          </button>
+
+          {/* Download & Privacy - Right */}
+          <div className="flex items-center gap-4">
             <button
-              onClick={() => { toggleTheme(); handleMenuClick(); }}
-              className="mt-4 p-2 rounded-full bg-white text-gray-800 focus:outline-none"
+              onClick={() => scrollToSection('download')}
+              className="text-sm font-medium text-dark hover:text-primary transition-colors"
             >
-              {currentTheme === 'light' ? '🌙' : '☀️'}
+              Download
+            </button>
+            <button
+              onClick={() => onNavigate && onNavigate('privacy')}
+              className="hidden sm:block text-sm font-medium text-dark hover:text-primary transition-colors"
+            >
+              Privacy
             </button>
           </div>
-        </div>
-      )}
-    </nav>
+        </motion.div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/20 z-40 md:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            {/* Mobile Menu */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.25 }}
+              className="fixed top-20 left-4 right-4 z-50 md:hidden bg-white rounded-2xl shadow-xl border border-border-gray overflow-hidden"
+            >
+              <div className="p-4 space-y-1">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.name}
+                    onClick={() => scrollToSection(link.sectionId)}
+                    className="w-full text-left px-4 py-3 text-base font-medium text-dark hover:bg-primary-light hover:text-primary rounded-lg transition-colors"
+                  >
+                    {link.name}
+                  </button>
+                ))}
+
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onNavigate && onNavigate('privacy');
+                  }}
+                  className="w-full text-left px-4 py-3 text-base font-medium text-dark hover:bg-primary-light hover:text-primary rounded-lg transition-colors"
+                >
+                  Privacy Policy
+                </button>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
